@@ -30,6 +30,7 @@ public class ItemController {
 	@RequestMapping("/addItem")
 	public String addItem(Item item){
 		this.itemService.addItem(item);
+		System.out.println(1234);
 		return "ok";
 	}
 	/**
