@@ -40,8 +40,6 @@ public class UsersController {
 	@RequestMapping("/selectAllUsers")
 	public String selectUser(Model model){
 		
-				
-		
 		List<Users> result = this.usersService.allUsers();
 		model.addAttribute("allUser", result);
 		return "allUsers";
