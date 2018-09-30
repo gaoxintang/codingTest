@@ -31,7 +31,9 @@ public class ItemController {
 	public String addItem(Item item){
 		this.itemService.addItem(item);
 		System.out.println(1234);
+		System.out.println(5252);
 		return "ok";
+		
 	}
 	/**
 	 * 检索所有用户
