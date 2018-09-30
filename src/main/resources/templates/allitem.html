@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table border = "1px">
+		<tr>
+		
+			<th>Name</th>
+			<th>Age</th>
+		
+		</tr>　
+		
+<!-- 		<c:forEach items="${allItem}" var="item"> -->
+		<tr th:each="item : ${allItem}">
+		
+			<td th:text="${item.name}"></td>
+			<td th:text="${item.age}"></td>
+		<td>
+		<a th:href="@{/item/findItemByName(name=${item.name})}">更新用户</a>
+		<a th:href="@{/item/deleteItem(name=${item.name})}">删除用户</a>
+		
+		</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjsxt.mapper.ItemMapper">
+	<insert id="insertItem" parameterType="item" >
+		insert into Item(name,age,math) values(#{name},#{age},#{math})
+	</insert>
+	
+	<select id="selectAllItem" resultType="item">
+		select name,age
+		from Item
+	</select>
+	
+	<select id="selectItem" resultType="item">
+		select name,age
+		from Item
+		where name = #{name}
+	</select>
+	
+ <select id="selectItemByName" resultType="item">
+ 	select name,age,math from item where name=#{value}
+ </select>
+ <update id="updateItem" parameterType="item">
+ 	update item set name=#{name},age=#{age} where name=#{name}
+ 	</update>
+ 	<delete id="deleteItemByName">
+ 	delete from item where name=#{value}
+ 	</delete>
+</mapper>

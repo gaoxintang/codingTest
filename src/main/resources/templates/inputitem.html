@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	$(function() {
+		$("#age").change(function() {
+			var inputAge = $(this);
+			if (isNaN(inputAge.val())) {
+				alert("please input right age!");
+				inputAge.val("");
+				return false;
+			}
+		});
+	});
+</script>
+</head>
+<body>
+
+	<form th:action="@{/item/addItem}" method="post">
+		用户姓名：<input type="text" name="name" /><br /> 用户年龄：<input id="age"
+			type="text" name="age" /><br /> 总分数:<input name ="math" type="text" /><br />
+		<input type="submit" value="确定" /><br />
+
+	</form>
+</body>
+</html>

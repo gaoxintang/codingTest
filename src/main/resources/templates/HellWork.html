@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HelloWork</title>
+
+<style type="text/css">
+.title p {
+	
+}
+
+.divTitle span {
+	float: left;
+	width: 16.6%;
+}
+
+.main div {
+	margin-top: 10px;
+}
+
+.divTitle {
+	height: 56px;
+}
+
+.ui-draggable, .ui-droppable {
+	background-position: top;
+}
+
+/* #a1 div { */
+float
+
+
+
+
+:
+
+
+ 
+
+
+left
+
+
+
+
+;
+}
+</style>
+<link rel="stylesheet"
+	href="http://jqueryui.com/resources/demos/style.css">
+<link rel="stylesheet" href="./css/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	$(function() {
+		// 		$("#datepicker").datepicker();
+
+		$("#employeeId").focus(function() {
+			$("#infor").css('display', 'none').text("");
+		});
+		$("#idyear").focus(function() {
+			$("#idy").css('display', 'none').text("");
+		});
+		$("#idsex").change(function() {
+			var idoption = $(this).val();
+			if (idoption == "bj") {
+				$("#employeeId").css("background-color", "red");
+			}
+		});
+		$('#test').find('input[type=checkbox]').bind(
+				'click',
+				function() {
+					$('#test').find('input[type=checkbox]').not(this).attr(
+							"checked", false);
+				});
+
+		$("#submitBtn").click(function() {
+			var idValue = $("#employeeId").val();
+			var nmValue = $("#employeeNm").val();
+			var idye = $("#idyear").val();
+			if (isNotBlank(idValue)) {
+				return aa(idye)
+			} else {
+				return false;
+			}
+
+		});
+
+		function aa(idye) {
+			if (idye<0 && idye>13) {
+				return true;
+			}
+			$("#idy").css('display', 'block').val("入力する項目が不正、もう一度入力してください")
+					.css("color", "red");
+			return false;
+		}
+
+		function isNotBlank(str) {
+			if (undefined != str && "" != str) {
+				return true;
+			}
+			$("#idcheckbox").css('display', 'block').text(
+					"入力する項目が不正、もう一度入力してください").css("color", "red");
+			return false;
+		}
+		$("#checkbox4").click(function(){
+			if ($("#checkbox4").is(':checked')) {
+				$("#idcountry").css('display', 'block');
+			}
+			else{
+				$("#idcountry").css('display', 'none');
+			}
+		});
+	});
+	
+</script>
+</head>
+<body>
+	<div class="main" style="width: 85%; margin-left: 8%">
+		<div>
+			<img src="./img/h1_s.gif" alt="ハローワークインターネットサービス" width="438"
+				height="63">
+		</div>
+		<div class="divTitle">
+			<!-- 		rgb(233,235,241) -->
+			<span style="background-color: rgb(233, 235, 241)"><p>仕事を」お探しの方</p></span>
+			<span style="background-color: rgb(244, 245, 202)"><p>事業主の方</p></span>
+			<span style="background-color: rgb(233, 235, 241)"><p>ハローワークニュース</p></span>
+			<span style="background-color: rgb(244, 245, 202)"><p>申請等をご利用のほうへ</p></span>
+			<span style="background-color: rgb(233, 235, 241)"><p>雇用保険関係</p></span>
+			<span style="background-color: rgb(244, 245, 202)"><p>よくあるご質問</p></span>
+		</div>
+		<div style="margin-top: 10px">
+			<stong> ハローワークを装った不審なメールにご注意ください。 </stong>
+		</div>
+		<div>
+			<p>
+				最近、ハローワークからのメールを装った不審なメールの情報が寄せられています。中には悪質な課金サイトもあるようです。不審なメールを受信した際は、メール本文中のURLをクリックする、添付ファイルを開く、または届いたメールに対して返信するなどの行為は行わないようにしてください。ハローワークご利用中の方で、ハローワークからのメールかどうか判断が難しい場合は、ご利用いただいているハローワークにご確認ください。
+			</p>
+		</div>
+		<li><a href="www.baidu.com" targer="blank">厚生労働省</a> <img
+			src="./img/11.png" alt="新規ウインドウで開きます" width="13" height="13"></li>
+		<hr width="100%" align="left" color="#f9cd9e">
+		<h2>仕事をお探しの方</h2>
+		<hr width="100%" align="left" color="#f9cd9e">
+		<div class="more">
+			<h3>仕事をお探しの方へのサービス</h3>
+
+		</div>
+		<p class="text1">
+			ハローワークでは、全国550以上のハローワークや他の付属施設で集めた求人をもとに、おひとりおひとりにあったお仕事が見つかるよう、
+			ご相談しながらお仕事の紹介を行っています。 また、雇用保険給付の支給なども行っています。</p>
+		<form id="text" action="">
+			Id:<input id="employeeId" type="text" name="name" />&nbsp;&nbsp;&nbsp;&nbsp;
+			Name:<input id="employeeNm" type="text" name="age" /><br />
+			<div id="infor" style="display: none"></div>
+			sex:<select id="idsex" name="sex" style="margin-top: 15px;">
+				<option value="bj">girl</option>
+				<option value="tj" selected="selected">boy</option>
+			</select> &nbsp;&nbsp;&nbsp;&nbsp;
+			<!-- 				<p style="display:inline;padding-right:15px;">Date: <input type="text" id="datepicker"></p><br/> -->
+			<div id="a1">
+				<div id="a2"
+					style="background-color: red; height: 100%; display: inline">111</div>
+				<div id="a3"
+					style="background-color: green; height: 100%; display: inline">222</div>
+				<div id="a4"
+					style="background-color: blue; height: 100%; display: inline">333</div>
+			</div>
+			<div>
+				YEAR:<input id="idyear" type="text" name="nameyear"
+					style="width: 100px; heigth: 20px" /> MOTH:<input id=idmoth
+					type="text" name="namemoth" />
+			</div>
+			<div>
+				<input id="idy" style="display: none" /><input id="idm"
+					style="display: none" />
+			</div>
+			<div id="">出国留学地区只能选一个</div>
+			<div="idcheckbox">
+				Asia:<input type="checkbox" name="checkbox" value="checkbox1">
+				Europe:<input type="checkbox" name="checkbox" value="checkbox2">
+				Africa:<input type="checkbox" name="checkbox" value="checkbox3">
+				other:<input id="checkbox4" type="checkbox" name="checkbox" value="checkbox4">
+				<select id="idcountry" name="country" style="display: none;">
+					<option value="country1">country1</option>
+					<option value="country2" selected="selected">country1</option>
+					<option value="country3">country3</option>
+			</div>
+			<div></div>
+			<div>
+				<input id="submitBtn" type="button" style="margin-top: 15px;"
+					value="确定" /><br />
+
+			</div>
+
+		</form>
+
+		<div>
+			<hr width="100%" align="left" color="#f9cd9e">
+			<div style="width: 350px; background-color: red; float: left;">DIV1</div>
+			<div style="width: 350px; background-color: blue; float: left;">DIV2</div>
+			<div style="width: 500px; background-color: yellow; float: left;">DIV3</div>
+
+		</div>
+
+
+
+	</div>
+
+
+
+
+</body>
+</html>

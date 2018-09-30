@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>添加用户</title>
+</head>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	$(function () {
+		$("#age").change(function(){
+			var inputAge = $(this); 
+			if(isNaN(inputAge.val())){
+				alert("please input right age!");
+				inputAge.val("");
+			return false;
+			}
+			});
+	});
+	$(function(){ 
+		alert(1244);
+	  $("#submit").click(function() {
+		 var $score = $("div span:eq(3)");
+		  if($score.text() > 90 ){
+			  $score.css("backgroudColor, red");
+		  }
+		  
+	  });
+	})
+
+</script>
+<body>
+	
+	<form th:action="@{/item/addItem}" method="post">
+		用户姓名：<input type="text" name="name"/><br/>
+		用户年龄：<input id = "age" type="text" name="age" /><br/>
+		<input type="submit" value="确定" /><br/>
+		
+	</form>
+	<input id="checkbox" type="checkbox" checked="checked"></input>
+		<input type="checkbox" ></input>
+		<input type="checkbox" ></input>
+		<input type="checkbox" checked="checked"></input>
+		
+		<div><span>id</span><span>name</span><span>score</span></div>
+		<div><span>145</span><span>zhangsan</span><span>100</span></div>
+		<div><span>513</span><span>lisi</span><span>75</span></div>
+		<div><span>654</span><span>wangwu</span><span>55</span></div>
+		<div><input id="submit" type="button" value="submit"></input></div>
+	
+	
+</body>
+</html>

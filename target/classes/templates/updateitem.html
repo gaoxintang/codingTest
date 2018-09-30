@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{/item/updateItem}" method="post">
+<!-- 			<input type="hidden" name="id" th:field="${item.name}"/> -->
+			用户姓名：<input type="text" name="name" th:field="${item.name}"/><br/>
+			用户年龄：<input type="text" name="age" th:field="${item.age}"/><br/>
+			<input type="submit" value="更新"/><br/>
+	</form>
+
+</body>
+</html>
