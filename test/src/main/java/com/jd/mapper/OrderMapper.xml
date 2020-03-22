@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jd.mapper.OrderMapper">
+	<insert id="addOrder" parameterType="Order">
+		insert into orderInfor
+			(
+			orderNo,
+			stationNo,
+			boxNo,
+			updateTime
+			) 
+		values
+			(
+			#{orderNo},
+			#{stationNo},
+			#{boxNo},
+			sysDate()
+			)
+	</insert>
+
+	<select id="selectAllOrders" parameterType="Order" resultType="Order">
+		SELECT 
+			boxNo,
+			stationNo,
+			orderNo, 
+			updateTime,
+			notUpdate
+		FROM
+			(
+			SELECT 
+				boxNo,
+				stationNo,
+				orderNo,
+	    		MAX(updateTime) updateTime,
+	    		DATEDIFF(SYSDATE() , date_format(MAX(updateTime),'%Y%-%c%-%e')) notUpdate
+	 		FROM 
+	 			orderInfor
+			GROUP BY 
+				boxNo,stationNo,orderNo
+	 		ORDER BY 
+	 			orderNo,boxNo,stationNo
+ 			) T
+ 		 <where>
+ 		 <if test="boxNo != null and boxNo !=''">
+      		and boxNo = #{boxNo}
+    	</if>
+    	<if test="stationNo != null and stationNo !=''">
+      		and stationNo = #{stationNo}
+    	</if>
+    	<if test="orderNo != null and orderNo !=''">
+      		and orderNo = #{orderNo}
+    	</if>
+    	<if test="updateTime != null and updateTime !=''">
+      		and updateTime > #{updateTime}
+    	</if>
+    	<if test="notUpdate != null and notUpdate !=''">
+      		and notUpdate > #{notUpdate}
+    	</if>
+    	 </where>
+    	
+ 			
+	</select>
+
+</mapper>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>订单登录界面</title>
+<link rel="stylesheet" type="text/css" media="all"
+	th:href="@{/css/regist.css}" />
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<article>
+			<h1>
+				<em>Logo</em><span>╳╳╳技术有限公司</span>
+			</h1>
+			<div class="main">
+				<form th:action="@{/orders/addOrder}" method="post">
+					<div class="tel">
+						<em>订单号由11个字符组成！</em> <input type="text" name="orderNo"
+							placeholder="订单号"><font color="red" th:errors="${order.orderNo}"></font>
+					</div>
+					<div class="userName">
+						<em>请输入站点代号或者名字</em> <input type="text" name="stationNo" placeholder="站点"><font color="red" th:errors="${order.stationNo}"></font>
+					</div>
+					<div class="boxNo">
+						<em>请输入箱号</em> <input type="text" name="boxNo" placeholder="箱号"><font color="red" th:errors="${order.boxNo}"></font>
+					</div>
+					<!--                     <div class="againpwd"> -->
+					<!--                         <input type="password" name="pwd" placeholder="再次输入密码"><em>两次密码不一致</em> -->
+					<!--                     </div> -->
+					<input type="submit" value="提交"></input>
+				</form>
+			</div>
+		</article>
+		<footer>
+			<ul>
+				<li><a href="#">联系我们</a></li>
+				<li><a href="#">关于我们</a></li>
+				<li><a href="#">人才招聘</a></li>
+				<li><a href="#">友情链接</a></li>
+				<li><a href="#">公司地址</a></li>
+				<li><a href="#">关注我们</a></li>
+			</ul>
+			<p>本网站版权归╳╳╳技术有限公司所有，未经许可，不得转载</p>
+		</footer>
+	</div>
+</body>
+</html>

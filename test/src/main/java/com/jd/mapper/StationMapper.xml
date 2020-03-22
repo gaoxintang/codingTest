@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jd.mapper.StationMapper">
+	<insert id="addStation" parameterType="Station">
+		insert into station
+			(
+			name,
+			symbol
+			) 
+		values
+			(
+			#{name},
+			#{symbol}
+			)
+		ON DUPLICATE KEY UPDATE 
+		symbol = #{symbol}
+	</insert>
+
+	<select id="selectAllStations" resultType="Station">
+		select 
+			id,
+			name,
+			symbol
+		from 
+			station
+	</select>
+	<select id="selectStation" resultType="Station">
+		select 
+			id,
+			name,
+			symbol
+		from 
+			station
+		where
+			symbol = #{symbol}
+	</select>
+</mapper>

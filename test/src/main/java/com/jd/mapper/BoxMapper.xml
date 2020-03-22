@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jd.mapper.BoxMapper">
+	<insert id="addBox" parameterType="Box">
+		insert into box (name, symbol)
+		select #{name}, #{symbol}
+		where not exists
+		(select id from box where symbol = #{symbol});
+	</insert>
+
+	<select id="selectAllBoxes" resultType="Box">
+		select
+		id,
+		name,
+		symbol
+		from
+		box
+	</select>
+
+</mapper>
